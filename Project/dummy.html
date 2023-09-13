@@ -1,0 +1,40 @@
+<html>
+
+<head>
+
+    <title>USER INPUT</title>
+
+    <script>
+        function valid() {
+            var email, text, spl;
+            email = document.getElementById("box1").value;
+            spl = /^([A-Za-z0-9_\-\.]{1,63})+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,3})$/;
+            if (email.length < 1) {
+                window.alert("Field should be filled");
+                text = "RETRY";
+            } else {
+                if (spl.test(email) == true) {
+                    text = "VALID";
+                } else {
+                    text = "INVALID";
+                }
+            }
+            document.getElementById("result").innerHTML = text;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <center>
+        <form autocomplete="off" id="form1">
+            E-mail: <input type="text" id="box1" placeholder="Email*" onclick="valid()">
+        </form>
+        <button type="submit" onclick="valid()">Submit </button>
+        <p id="result"></p>
+    </center>
+
+</body>
+
+</html>
